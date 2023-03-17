@@ -29,7 +29,7 @@ describe('AlbumService', () => {
   it('create should return a new museum', async () => {
     const museum: AlbumEntity = {
       id: "",
-      nombre: faker.firstName(),
+      nombre: faker.name.firstName(),
       caratula: faker.lorem.sentence(),
       fechaLanzamient: faker.date.between('2020-01-01T00:00:00.000Z', '2030-01-01T00:00:00.000Z'),
       descripcion: faker.lorem.sentence(),
