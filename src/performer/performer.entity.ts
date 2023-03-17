@@ -1,4 +1,4 @@
-import { AlbumEntity } from 'src/album/album.entity';
+import { AlbumEntity } from '../album/album.entity';
 import { OneToMany, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()

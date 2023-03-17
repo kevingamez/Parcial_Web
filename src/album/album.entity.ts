@@ -1,5 +1,5 @@
-import { PerformerEntity } from 'src/performer/performer.entity';
-import { TrackEntity } from 'src/track/track.entity';
+import { PerformerEntity } from '../performer/performer.entity';
+import { TrackEntity } from '../track/track.entity';
 import { OneToMany, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()

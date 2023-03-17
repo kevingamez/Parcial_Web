@@ -30,11 +30,4 @@ export class TrackService {
         return await this.trackRepository.save(track);
     }
 
-    async delete(id: string) {
-        const track: TrackEntity = await this.trackRepository.findOne({where:{id}});
-        if (!track)
-          throw new BusinessLogicException("The track with the given id was not found", BusinessError.NOT_FOUND);
-     
-        await this.trackRepository.remove(track);
-    }
 }
