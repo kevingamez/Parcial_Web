@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { AlbumEntity } from 'src/album/album.entity';
+import { OneToMany, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class PerformerEntity {
@@ -14,4 +15,6 @@ export class PerformerEntity {
  @Column()
  imagen: string;
  
+ @OneToMany(() => AlbumEntity, album => album.performers)
+ albums: AlbumEntity[];
 }
