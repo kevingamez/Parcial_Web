@@ -22,7 +22,7 @@ describe('AlbumService', () => {
     
     service = module.get<AlbumService>(AlbumService);
     repository = module.get<Repository<AlbumEntity>>(getRepositoryToken(AlbumEntity));
-    await seedDatabase();
+    await seedDatabase(); 
   });
 
   const seedDatabase = async () => {
@@ -48,8 +48,8 @@ describe('AlbumService', () => {
  
 
  
-  it('create should return a new museum', async () => {
-    const museum: AlbumEntity = {
+  it('create should return a new album', async () => {
+    const album: AlbumEntity = {
       id: "",
       nombre: faker.name.firstName(),
       caratula: faker.lorem.sentence(),
@@ -59,14 +59,14 @@ describe('AlbumService', () => {
       performers: []
     }
  
-    const newMuseum: AlbumEntity = await service.create(museum);
-    expect(newMuseum).not.toBeNull();
+    const newAlbum: AlbumEntity = await service.create(album);
+    expect(newAlbum).not.toBeNull();
  
-    const storedMuseum: AlbumEntity = await repository.findOne({where: {id: newMuseum.id}})
-    expect(storedMuseum).not.toBeNull();
-    expect(storedMuseum.nombre).toEqual(newMuseum.nombre)
-    expect(storedMuseum.descripcion).toEqual(newMuseum.descripcion)
-    expect(storedMuseum.fechaLanzamient).toEqual(newMuseum.fechaLanzamient)
-    expect(storedMuseum.caratula).toEqual(newMuseum.caratula)
+    const storedAlbum: AlbumEntity = await repository.findOne({where: {id: newAlbum.id}})
+    expect(storedAlbum).not.toBeNull();
+    expect(storedAlbum.nombre).toEqual(newAlbum.nombre)
+    expect(storedAlbum.descripcion).toEqual(newAlbum.descripcion)
+    expect(storedAlbum.fechaLanzamient).toEqual(newAlbum.fechaLanzamient)
+    expect(storedAlbum.caratula).toEqual(newAlbum.caratula)
   });
 });
