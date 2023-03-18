@@ -46,8 +46,6 @@ describe('AlbumService', () => {
     expect(service).toBeDefined();
   });
  
-
- 
   it('create should return a new album', async () => {
     const album: AlbumEntity = {
       id: "",
