@@ -11,7 +11,7 @@ import { AlbumEntity } from './album/album.entity';
 import { PerformerAlbumModule } from './performer-album/performer-album.module';
 
 @Module({
-  imports: [PerformerModule, TrackModule, AlbumModule,
+  imports: [PerformerModule, TrackModule, AlbumModule, PerformerAlbumModule,
   TypeOrmModule.forRoot({
     type: 'postgres',
     host: 'localhost',
@@ -24,7 +24,6 @@ import { PerformerAlbumModule } from './performer-album/performer-album.module';
     synchronize: true,
     keepConnectionAlive: true
   }),
-  PerformerAlbumModule,
 ],
 controllers: [AppController],
 providers: [AppService],
