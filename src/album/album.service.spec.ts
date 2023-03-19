@@ -51,7 +51,7 @@ describe('AlbumService', () => {
       id: "",
       nombre: faker.name.firstName(),
       caratula: faker.lorem.sentence(),
-      fechaLanzamient: faker.date.between('2020-01-01T00:00:00.000Z', '2030-01-01T00:00:00.000Z'),
+      fechaLanzamiento: faker.date.between('2020-01-01T00:00:00.000Z', '2030-01-01T00:00:00.000Z'),
       descripcion: faker.lorem.sentence(),
       tracks: [],
       performers: []
@@ -64,7 +64,8 @@ describe('AlbumService', () => {
     expect(storedAlbum).not.toBeNull();
     expect(storedAlbum.nombre).toEqual(newAlbum.nombre)
     expect(storedAlbum.descripcion).toEqual(newAlbum.descripcion)
-    expect(storedAlbum.fechaLanzamient).toEqual(newAlbum.fechaLanzamient)
+    expect(storedAlbum.fechaLanzamiento).toEqual(newAlbum.fechaLanzamiento)
     expect(storedAlbum.caratula).toEqual(newAlbum.caratula)
   });
 });
+ 

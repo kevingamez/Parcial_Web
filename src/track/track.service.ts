@@ -14,11 +14,9 @@ export class TrackService {
 
     async findAll(): Promise<TrackEntity[]> {
         return await this.trackRepository.find({ relations: ["album"] });
-        //return await this.trackRepository.find();
     }
 
     async findOne(id: string): Promise<TrackEntity> {
-        //const track: TrackEntity = await this.trackRepository.findOne({where: {id}} );
         const track: TrackEntity = await this.trackRepository.findOne({where: {id} } );
         if (!track)
           throw new BusinessLogicException("The track with the given id was not found", BusinessError.NOT_FOUND);
