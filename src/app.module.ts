@@ -18,7 +18,7 @@ import { PerformerAlbumModule } from './performer-album/performer-album.module';
     port: 5432,
     username: 'postgres',
     password: 'postgres',
-    database: 'museum',
+    database: 'marketplace',
     entities: [PerformerEntity, TrackEntity, AlbumEntity],
     dropSchema: true,
     synchronize: true,

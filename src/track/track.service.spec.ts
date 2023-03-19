@@ -6,12 +6,11 @@ import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-co
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { faker } from '@faker-js/faker';
 
-
 describe('TrackService', () => {
-  let service: TrackService;
+  let service: TrackService; 
   let repository: Repository<TrackEntity>
   let tracks: TrackEntity[];
-
+ 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [...TypeOrmTestingConfig()],

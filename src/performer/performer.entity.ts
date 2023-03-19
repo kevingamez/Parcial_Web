@@ -10,7 +10,7 @@ export class PerformerEntity {
  nombre: string;
  
  @Column()
- description: string;
+ descripcion: string;
  
  @Column()
  imagen: string;

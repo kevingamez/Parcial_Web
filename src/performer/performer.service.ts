@@ -13,11 +13,11 @@ export class PerformerService {
     ){}
     
     async findAll(): Promise<PerformerEntity[]> {
-        return await this.performerRepository.find({ relations: ["albums"] });
+        return await this.performerRepository.find();
     }
 
     async findOne(id: string): Promise<PerformerEntity> {
-        const performer: PerformerEntity = await this.performerRepository.findOne({where: {id}, relations: ["albums"] } );
+        const performer: PerformerEntity = await this.performerRepository.findOne({where: {id}} );
         if (!performer)
           throw new BusinessLogicException("The performer with the given id was not found", BusinessError.NOT_FOUND);
    
