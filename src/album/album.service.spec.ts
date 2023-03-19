@@ -32,7 +32,7 @@ describe('AlbumService', () => {
       const album: AlbumEntity = await repository.save({
         nombre: faker.name.firstName(),
         caratula: faker.lorem.sentence(),
-        fechaLanzamient: faker.date.between('2020-01-01T00:00:00.000Z', '2030-01-01T00:00:00.000Z'),
+        fechaLanzamiento: faker.date.past(),
         descripcion: faker.lorem.sentence(),
         tracks: [],
         performers: []
@@ -51,7 +51,7 @@ describe('AlbumService', () => {
       id: "",
       nombre: faker.name.firstName(),
       caratula: faker.lorem.sentence(),
-      fechaLanzamiento: faker.date.between('2020-01-01T00:00:00.000Z', '2030-01-01T00:00:00.000Z'),
+      fechaLanzamiento: faker.date.past(),
       descripcion: faker.lorem.sentence(),
       tracks: [],
       performers: []
