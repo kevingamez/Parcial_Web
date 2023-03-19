@@ -20,11 +20,14 @@ export class TrackService {
         const track: TrackEntity = await this.trackRepository.findOne({where: {id} } );
         if (!track)
           throw new BusinessLogicException("The track with the given id was not found", BusinessError.NOT_FOUND);
-   
         return track;
     }
 
     async create(track: TrackEntity): Promise<TrackEntity> {
+        if (track.duracion < 0)
+           throw new BusinessLogicException("The track duration have to be possitive", BusinessError.BAD_REQUEST);
+        if (!track.album)
+            new BusinessLogicException("The track album is required", BusinessError.BAD_REQUEST);
         return await this.trackRepository.save(track);
     }
 

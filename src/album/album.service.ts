@@ -26,14 +26,21 @@ export class AlbumService {
     }
 
     async create(album: AlbumEntity): Promise<AlbumEntity> {
+        if (album.nombre == null || album.nombre == "")
+            throw new BusinessLogicException("The album name is required", BusinessError.BAD_REQUEST);
+        if (album.descripcion == null || album.descripcion == "")
+            throw new BusinessLogicException("The album descripcion is required", BusinessError.BAD_REQUEST);
+        
         return await this.albumRepository.save(album);
     }
 
     async delete(id: string) {
-        const album: AlbumEntity = await this.albumRepository.findOne({where:{id}});
+        const album: AlbumEntity = await this.albumRepository.findOne({where:{id}, relations: ["tracks"]});
         if (!album)
           throw new BusinessLogicException("The album with the given id was not found", BusinessError.NOT_FOUND);
-     
+        if (album.tracks.length > 0)
+            throw new BusinessLogicException("The album has tracks and cannot be deleted", BusinessError.CONFLICT);
         await this.albumRepository.remove(album);
     }
+  
 }

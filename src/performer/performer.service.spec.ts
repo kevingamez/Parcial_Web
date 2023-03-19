@@ -55,6 +55,10 @@ describe('PerformerService', () => {
     expect(performer.imagen).toEqual(storedPerformer.imagen);
   });
 
+  it('findOne should throw an exception for an invalid user', async () => {
+    await expect(() => service.findOne('0')).rejects.toHaveProperty('message', 'The performer with the given id was not found');
+  });
+
   it('create should create a new performer', async () => {
     const performer: PerformerEntity = {
       id: '',
@@ -62,7 +66,7 @@ describe('PerformerService', () => {
       descripcion: faker.lorem.sentence(),
       imagen: faker.lorem.sentence(),
       albums: []
-    }
+    } 
     const createdPerformer: PerformerEntity = await service.create(performer);
     expect(createdPerformer).not.toBeNull();
 
@@ -71,6 +75,17 @@ describe('PerformerService', () => {
     expect(storedPerformer.nombre).toEqual(performer.nombre);
     expect(storedPerformer.descripcion).toEqual(performer.descripcion);
     expect(storedPerformer.imagen).toEqual(performer.imagen);
+  });
+
+  it('create an user with more tha 100 caracteres description should thrown exception', async () => {
+    const performer: PerformerEntity = {
+      id: "",
+      nombre: faker.name.fullName(),
+      descripcion: faker.lorem.sentence(120),
+      imagen: faker.image.imageUrl(),
+      albums: []
+    }
+    await expect(() => service.create(performer)).rejects.toHaveProperty('message', 'The performer description have to be less than 100 characters');
   });
 
 });
