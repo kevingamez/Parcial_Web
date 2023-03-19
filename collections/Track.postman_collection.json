@@ -1,0 +1,347 @@
+{
+	"info": {
+		"_postman_id": "b19fd5ae-f836-442f-a2c4-514bf1499ef8",
+		"name": "Track",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12849260"
+	},
+	"item": [
+		{
+			"name": "Add a track",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"track_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\": \"Angelito\",\r\n   \"duracion\": 34738,\r\n   \"albums\": [\r\n       {\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0324233242\",\r\n    \"nombre\": \"Golderrn\",\r\n    \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n    \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n    }\r\n   ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/tracks",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tracks"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a track",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"nombre\": \"Angelito\",\r\n   \"duracion\": 34738,\r\n   \"albums\": [\r\n       {\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0324233242\",\r\n    \"nombre\": \"Golderrn\",\r\n    \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n    \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n    }\r\n   ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/tracks",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tracks"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get all tracks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of tracks > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n   \"nombre\": \"Angelito\",\r\n   \"duracion\": 34738,\r\n   \"album\": {\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac143534\",\r\n    \"nombre\": \"Golden\",\r\n    \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n    \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n        }\r\n    },\r\n    {\r\n        \"nombre\": \"sdfgfgfdg\",\r\n        \"duracion\": 32423432,\r\n        \"album\": {\r\n            \"id\": \"48a9ab90-1276-11ed-861d-0242ac14332334\",\r\n            \"nombre\": \"Golden\",\r\n            \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n            \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n            \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n                }\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/tracks",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tracks"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all tracks",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n   \"nombre\": \"Angelito\",\r\n   \"duracion\": 34738,\r\n   \"album\": {\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac143534\",\r\n    \"nombre\": \"Golden\",\r\n    \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n    \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n        }\r\n    },\r\n    {\r\n        \"nombre\": \"sdfgfgfdg\",\r\n        \"duracion\": 32423432,\r\n        \"album\": {\r\n            \"id\": \"48a9ab90-1276-11ed-861d-0242ac14332334\",\r\n            \"nombre\": \"Golden\",\r\n            \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n            \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n            \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n                }\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/tracks",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tracks"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get a track",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"id\": \"14ffg05d0e-1275-11ed-861d-0242ac120032\",\r\n   \"nombre\": \"Angelito\",\r\n   \"duracion\": 34738,\r\n   \"album\": {\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac143534\",\r\n    \"nombre\": \"Golden\",\r\n    \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n    \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/tracks/{{track_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tracks",
+						"{{track_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a track",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"id\": \"14ffg05d0e-1275-11ed-861d-0242ac120032\",\r\n   \"nombre\": \"Angelito\",\r\n   \"duracion\": 34738,\r\n   \"album\": {\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac143534\",\r\n    \"nombre\": \"Golden\",\r\n    \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n    \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tracks/{{track_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tracks",
+								"{{track_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get an invalid track",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The museum with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The track with the given id was not found\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/tracks/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tracks",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an invalid track",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The track with the given id was not found\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tracks/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tracks",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": " http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

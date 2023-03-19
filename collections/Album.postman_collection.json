@@ -1,0 +1,546 @@
+{
+	"info": {
+		"_postman_id": "db44d0df-a5e2-48fb-a2a2-d326794185e1",
+		"name": "Album",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12849260"
+	},
+	"item": [
+		{
+			"name": "Add an album",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"album_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\": \"King of Bachata\",\r\n   \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n   \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n   \"descripcion\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/albums",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"albums"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a album",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n   \"nombre\": \"King of Bachata\",\r\n   \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n   \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n   \"descripcion\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/albums",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"albums"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Add a performer to an album",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\": \"King of Bachata\",\r\n   \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n   \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n   \"descripcion\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\",\r\n   \"performers\": [\r\n       {\r\n        \"nombre\": \"Romeo Santos\",\r\n        \"descripcion\": \"Anthony Santos, ​ conocido artísticamente como Romeo Santos, ​​ Aventura.\",\r\n        \"imagen\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Ftwitter.com%2FRomeoSantosPage&psig=AOvVaw1eiDyjGjNhmnBJg9IKr2qd&ust=1679343415872000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMi5r-7n6P0CFQAAAAAdAAAAABAE.jpg\"\r\n        },{\r\n            \"nombre\": \"Antony Santos\",\r\n        \"descripcion\": \"Anthony Santos, ​ conocido artísticamente como Romeo Santos, ​​ Aventura.\",\r\n        \"imagen\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Ftwitter.com%2FRomeoSantosPage&psig=AOvVaw1eiDyjGjNhmnBJg9IKr2qd&ust=1679343415872000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMi5r-7n6P0CFQAAAAAdAAAAABAE.jpg\"\r\n        }\r\n   ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/albums",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"albums"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a album",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n   \"nombre\": \"King of Bachata\",\r\n   \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n   \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n   \"descripcion\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/albums",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"albums"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get all albums",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of albums > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n        \"nombre\": \"King of Bachata\",\r\n        \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n        \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n        \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\",\r\n        \"tracks\": [\r\n            {\r\n                \"id\": \"14f05d0e-1275-11ed-861d-0242ac124032\",\r\n                \"nombre\": \"Angelito\",\r\n                \"duracion\": 34738,\r\n                \"album\": {\r\n                    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n                    \"nombre\": \"King of Bachata\",\r\n                    \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n                    \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n                    \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n                    }\r\n            }\r\n        ]\r\n    },\r\n    {\r\n        \"id\": \"48a9ab90-1276-11ed-861d-ewr24324\",\r\n        \"nombre\": \"Golden\",\r\n        \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n        \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n        \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\",\r\n        \"tracks\": [\r\n            {\r\n                \"id\": \"14f05d0e-1275-11ed-861d-0242ac124032\",\r\n                \"nombre\": \"Angelito\",\r\n                \"duracion\": 34738,\r\n                \"album\": {\r\n                    \"id\": \"48a9ab90-1276-11ed-861d-ewr24324\",\r\n                    \"nombre\": \"Golden\",\r\n                    \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n                    \"fechaLanzamiento\": \"2022-23-19T10:00:00Z\",\r\n                    \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n                    }\r\n            }\r\n        ]\r\n    }\r\n\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/albums",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"albums"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all albums",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n        \"nombre\": \"King of Bachata\",\r\n        \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n        \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n        \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\",\r\n        \"tracks\": [\r\n            {\r\n                \"id\": \"14f05d0e-1275-11ed-861d-0242ac124032\",\r\n                \"nombre\": \"Angelito\",\r\n                \"duracion\": 34738,\r\n                \"album\": {\r\n                    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n                    \"nombre\": \"King of Bachata\",\r\n                    \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n                    \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n                    \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n                    }\r\n            }\r\n        ]\r\n    },\r\n    {\r\n        \"id\": \"48a9ab90-1276-11ed-861d-ewr24324\",\r\n        \"nombre\": \"Golden\",\r\n        \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n        \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n        \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\",\r\n        \"tracks\": [\r\n            {\r\n                \"id\": \"14f05d0e-1275-11ed-861d-0242ac124032\",\r\n                \"nombre\": \"Angelito\",\r\n                \"duracion\": 34738,\r\n                \"album\": {\r\n                    \"id\": \"48a9ab90-1276-11ed-861d-ewr24324\",\r\n                    \"nombre\": \"Golden\",\r\n                    \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n                    \"fechaLanzamiento\": \"2022-23-19T10:00:00Z\",\r\n                    \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n                    }\r\n            }\r\n        ]\r\n    }\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/albums",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"albums"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get an album",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n        \"nombre\": \"King of Bachata\",\r\n        \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n        \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n        \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\",\r\n        \"tracks\": [\r\n            {\r\n                \"id\": \"14f05d0e-1275-11ed-861d-0242ac124032\",\r\n                \"nombre\": \"Angelito\",\r\n                \"duracion\": 34738,\r\n                \"album\": {\r\n                    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n                    \"nombre\": \"King of Bachata\",\r\n                    \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n                    \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n                    \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n                    }\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/albums/{{album_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"albums",
+						"{{album_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an album",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n        \"nombre\": \"King of Bachata\",\r\n        \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n        \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n        \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\",\r\n        \"tracks\": [\r\n            {\r\n                \"id\": \"14f05d0e-1275-11ed-861d-0242ac124032\",\r\n                \"nombre\": \"Angelito\",\r\n                \"duracion\": 34738,\r\n                \"album\": {\r\n                    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n                    \"nombre\": \"King of Bachata\",\r\n                    \"caratula\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n                    \"fechaLanzamiento\": \"2022-03-19T10:00:00Z\",\r\n                    \"description\": \"The world's most popular natural history museum is dedicated to understanding the natural world and our place in it. Delve into the fascinating story of our planet, from its fiery beginnings through billions of years of transformation, and explore life on Earth through exhibitions and activities, collection objects and research that happens in the lab and in the field. The museum is larger than 18 football fields and is home to the largest natural history collection in the world.\"\r\n                    }\r\n            }\r\n        ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/albums/{{album_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"albums",
+								"{{album_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get an invalid album",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The museum with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The album with the given id was not found\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/albums/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"albums",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an invalid album",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The museum with the given id was not found\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/albums/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"albums",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete an album",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/albums/{{album_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"albums",
+						"{{album_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an album",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/albums/{{album_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"albums",
+								"{{album_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid album",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The museum with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The museum with the given id was not found\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/albums/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"albums",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an invalid album",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The museum with the given id was not found\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/albums/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"albums",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": " http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}
