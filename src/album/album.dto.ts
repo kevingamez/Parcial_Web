@@ -1,5 +1,5 @@
 
-import {IsNotEmpty, IsString, IsUrl, IsDate} from 'class-validator';
+import {IsNotEmpty, IsString, IsUrl} from 'class-validator';
 export class AlbumDto {
 
  @IsString()
@@ -8,9 +8,9 @@ export class AlbumDto {
  
  @IsUrl()
  @IsNotEmpty()
- readonly caraturla: string;
+ readonly caratula: string;
  
- @IsDate()
+ @IsString()
  @IsNotEmpty()
  readonly descripcion: string;
 }
