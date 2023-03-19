@@ -13,17 +13,17 @@ export class PerformerService {
     ){}
     
     async findAll(): Promise<PerformerEntity[]> {
-        return await this.performerRepository.find();
+        return await this.performerRepository.find( { relations: ["albums"] });
     }
 
     async findOne(id: string): Promise<PerformerEntity> {
-        const performer: PerformerEntity = await this.performerRepository.findOne({where: {id}} );
+        const performer: PerformerEntity = await this.performerRepository.findOne({where: {id}, relations: ["albums"] } );
         if (!performer)
           throw new BusinessLogicException("The performer with the given id was not found", BusinessError.NOT_FOUND);
    
         return performer;
     }
-
+ 
     async create(performer: PerformerEntity): Promise<PerformerEntity> {
         return await this.performerRepository.save(performer);
     }
